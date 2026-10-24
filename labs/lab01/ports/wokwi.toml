@@ -1,4 +1,0 @@
-[wokwi]
-version = 1
-firmware = "../../../build/lab01/ports/ports.ino.hex"
-elf = "../../../build/lab01/ports/ports.ino.elf"

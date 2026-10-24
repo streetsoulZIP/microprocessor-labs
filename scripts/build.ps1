@@ -6,10 +6,9 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$sketchDir = Join-Path $root "labs/$Lab/$Sketch"
-if (-not (Test-Path -LiteralPath (Join-Path $sketchDir "$Sketch.ino"))) {
-  throw "Скетч не найден: $sketchDir/$Sketch.ino"
-}
+$sketchDir = if ($Lab -eq 'lab00') { Join-Path $root "labs/$Lab/$Sketch" } else { Join-Path $root "$Lab/src/$Sketch" }
+$sketchFile = Join-Path $sketchDir "$Sketch.ino"
+if (-not (Test-Path -LiteralPath $sketchFile)) { throw "Скетч не найден: $sketchFile" }
 $cli = (Get-Command arduino-cli -ErrorAction SilentlyContinue).Source
 if (-not $cli) { $cli = 'C:\Program Files\Arduino CLI\arduino-cli.exe' }
 if (-not (Test-Path -LiteralPath $cli)) {

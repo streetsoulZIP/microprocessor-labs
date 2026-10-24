@@ -7,7 +7,15 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
-$project = Join-Path $root "labs/$Lab/$Sketch"
+$project = switch ($Lab) {
+  'lab00' { Join-Path $root "labs/$Lab/$Sketch" }
+  'lab01' { Join-Path $root 'lab01' }
+  'lab02' {
+    if ($Sketch -eq 'switch_fsm') { Join-Path $root 'lab02/circuits/switch-case' }
+    elseif ($Sketch -eq 'table_fsm') { Join-Path $root 'lab02/circuits/table-driven' }
+    else { throw "Неизвестный вариант lab02: $Sketch" }
+  }
+}
 $cli = (Get-Command wokwi-cli -ErrorAction SilentlyContinue).Source
 if (-not $cli) {
   $bundledCli = Join-Path $env:USERPROFILE '.wokwi\bin\wokwi-cli.exe'
@@ -26,7 +34,7 @@ if (-not $env:WOKWI_CLI_TOKEN) {
   throw 'Не задан WOKWI_CLI_TOKEN. Войдите в Wokwi CI, сохраните токен в переменной окружения пользователя и откройте новый PowerShell. Токен не записывается в проект.'
 }
 & (Join-Path $PSScriptRoot 'build.ps1') -Lab $Lab -Sketch $Sketch
-$results = Join-Path $root "labs/$Lab/results"
+$results = if ($Lab -eq 'lab00') { Join-Path $root "labs/$Lab/results" } else { Join-Path $root "$Lab/results" }
 New-Item -ItemType Directory -Force -Path $results | Out-Null
 $serial = Join-Path $results "$Sketch-serial.log"
 Push-Location $project

@@ -8,7 +8,7 @@ $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $labs = if ($Lab -eq 'all') { 'lab00', 'lab01', 'lab02' } else { @($Lab) }
 foreach ($name in $labs) {
-  $tests = Join-Path $root "labs/$name/tests"
+  $tests = if ($name -eq 'lab00') { Join-Path $root "labs/$name/tests" } else { Join-Path $root "$name/tests" }
   if (Test-Path -LiteralPath $tests) {
     Get-ChildItem -LiteralPath $tests -Filter '*Tests.ps1' | ForEach-Object { & $_.FullName }
   }
