@@ -1,0 +1,13 @@
+name: 'lab02 switch pedestrian and debounce'
+version: 1
+steps:
+  - wait-serial: 'WHY=BOOT'
+  - write-serial: 'F'
+  - set-control: {part-id: ped, control: pressed, value: 1}
+  - delay: 10ms
+  - set-control: {part-id: ped, control: pressed, value: 0}
+  - delay: 100ms
+  - set-control: {part-id: ped, control: pressed, value: 1}
+  - delay: 60ms
+  - wait-serial: 'PED_QUEUED'
+  - delay: 1900ms

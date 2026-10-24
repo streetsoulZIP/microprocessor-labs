@@ -1,0 +1,9 @@
+name: 'lab01: sample frequency'
+version: 1
+steps:
+  - wait-serial: 'L01:BOOT'
+  - wait-serial: 'L01:MS='
+  - wait-serial: 'L01:MS='
+  - wait-serial: 'L01:MS='
+  - wait-serial: 'L01:MS='
+  - wait-serial: 'L01:MS='

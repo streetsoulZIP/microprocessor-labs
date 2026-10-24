@@ -1,0 +1,6 @@
+name: 'lab02 table normal timing'
+version: 1
+steps:
+  - wait-serial: 'WHY=BOOT DUR=10000'
+  - wait-serial: 'TO=YELLOW WHY=TIMER DUR=3000'
+  - wait-serial: 'TO=RED WHY=TIMER DUR=10000'

@@ -1,0 +1,28 @@
+name: 'lab02 table fast functional'
+version: 1
+steps:
+  - wait-serial: 'WHY=BOOT DUR=10000'
+  - write-serial: 'F'
+  - wait-serial: 'WHY=TEST_FAST DUR=1000'
+  - set-control: {part-id: ped, control: pressed, value: 1}
+  - delay: 60ms
+  - set-control: {part-id: ped, control: pressed, value: 0}
+  - wait-serial: 'PED_QUEUED'
+  - wait-serial: 'TO=YELLOW WHY=TIMER DUR=300'
+  - wait-serial: 'TO=RED WHY=TIMER_PED DUR=1500'
+  - set-control: {part-id: emergency, control: pressed, value: 1}
+  - wait-serial: 'TO=EMERGENCY WHY=EMERGENCY_ON'
+  - set-control: {part-id: ped, control: pressed, value: 1}
+  - delay: 60ms
+  - set-control: {part-id: ped, control: pressed, value: 0}
+  - wait-serial: 'PED_IGNORED_EMERGENCY'
+  - set-control: {part-id: emergency, control: pressed, value: 0}
+  - wait-serial: 'WHY=EMERGENCY_OFF_RESTORE'
+  - set-control: {part-id: night, control: pressed, value: 1}
+  - delay: 60ms
+  - set-control: {part-id: night, control: pressed, value: 0}
+  - wait-serial: 'TO=NIGHT WHY=NIGHT_ON'
+  - set-control: {part-id: night, control: pressed, value: 1}
+  - delay: 60ms
+  - set-control: {part-id: night, control: pressed, value: 0}
+  - wait-serial: 'WHY=NIGHT_OFF_RESTORE'

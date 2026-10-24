@@ -1,0 +1,11 @@
+name: 'lab01: debounce and 5Hz sample'
+version: 1
+steps:
+  - wait-serial: 'PRESS=00000000 POS=[none] LED=00000000'
+  - set-control: {part-id: btn1, control: pressed, value: 1}
+  - delay: 10ms
+  - set-control: {part-id: btn1, control: pressed, value: 0}
+  - delay: 80ms
+  - wait-serial: 'PRESS=00000000 POS=[none] LED=00000000'
+  - set-control: {part-id: btn1, control: pressed, value: 1}
+  - wait-serial: 'PRESS=00000001 POS=[0] LED=00000001'

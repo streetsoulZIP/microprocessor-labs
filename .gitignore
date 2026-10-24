@@ -1,0 +1,28 @@
+# Build and local caches
+**/build/
+**/.pio/
+**/.cache/
+**/__pycache__/
+.vscode/*.log
+.~lock.*#
+
+# Local tokens / secrets
+.env
+.env.*
+*.secret
+secrets.json
+*.wokwi-token
+
+# Temporary exports and generated reports
+*.tmp
+*.bak
+*.pdf
+labs/*/results/*.log
+!assignments/*.pdf
+!labs/lab01/reports/lab01-report.pdf
+!labs/lab02/reports/lab02-report.pdf
+
+# Local verification renders and raw tool output are not publication material
+artifacts/report-renders/
+artifacts/docx-renders/
+artifacts/build-logs/*.log

@@ -1,0 +1,16 @@
+name: 'lab02 switch special events'
+version: 1
+steps:
+  - wait-serial: 'WHY=BOOT'
+  - set-control: {part-id: emergency, control: pressed, value: 1}
+  - wait-serial: 'EMERGENCY_ON'
+  - set-control: {part-id: emergency, control: pressed, value: 0}
+  - wait-serial: 'EMERGENCY_OFF_RESTORE'
+  - set-control: {part-id: night, control: pressed, value: 1}
+  - delay: 60ms
+  - wait-serial: 'NIGHT_ON'
+  - set-control: {part-id: night, control: pressed, value: 0}
+  - delay: 60ms
+  - set-control: {part-id: night, control: pressed, value: 1}
+  - delay: 60ms
+  - wait-serial: 'NIGHT_OFF_RESTORE'

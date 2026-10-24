@@ -1,0 +1,11 @@
+name: 'lab01: AVR PORTB and PIND'
+version: 1
+steps:
+  - wait-serial: 'L01:BOOT'
+  - wait-serial: 'PRESS=00000000 POS=[none] LED=00000000 FIRST_LOOP=-1 FIRST_CTZ=-1'
+  - set-control: {part-id: btn1, control: pressed, value: 1}
+  - wait-serial: 'PRESS=00000001 POS=[0] LED=00000001 FIRST_LOOP=0 FIRST_CTZ=0'
+  - set-control: {part-id: btn1, control: pressed, value: 0}
+  - set-control: {part-id: btn2, control: pressed, value: 1}
+  - set-control: {part-id: btn3, control: pressed, value: 1}
+  - wait-serial: 'PRESS=00000110 POS=[1,2] LED=00000110 FIRST_LOOP=1 FIRST_CTZ=1'
