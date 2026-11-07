@@ -26,3 +26,19 @@ labs/*/results/*.log
 artifacts/report-renders/
 artifacts/docx-renders/
 artifacts/build-logs/*.log
+
+# Personal preparation notes; never publish
+/Объяснение лаб/
+/tmp/
+
+# Local build/test infrastructure is useful on this PC, but not needed for submission
+/scripts/
+/lab01/*.test.yaml
+/lab01/test.yaml
+/lab01/tests/
+/lab01/report.docx
+/lab02/circuits/**/*.test.yaml
+/lab02/circuits/**/test.yaml
+/lab02/tests/
+/lab02/*.cmd
+/lab02/report.docx

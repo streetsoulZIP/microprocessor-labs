@@ -1,6 +1,6 @@
 # Лабораторная работа №2 — конечный автомат двумя методами
 
-[Отчёт PDF](report.pdf) · [Редактируемый отчёт DOCX](report.docx) · [switch-видео](switch-demo.mp4) · [table-видео](table-demo.mp4) · [Исходный код](src/) · [Схемы Wokwi](circuits/)
+[Отчёт PDF](report.pdf) · [switch-видео](switch-demo.mp4) · [table-видео](table-demo.mp4) · [Исходный код](src/) · [Схемы Wokwi](circuits/) · [Ответы на вопросы](questions.md)
 
 ## Что требовалось
 
@@ -17,17 +17,15 @@
 | Вариант | Flash | SRAM | Проверенное поведение |
 |---|---:|---:|---|
 | `switch-case` | 4400 Б (13%) | 422 Б (20%) | Полный цикл, аварийный и ночной режимы — Wokwi |
-| Таблица обработчиков | 4460 Б (13%) | 434 Б (21%) | Те же сценарии — Wokwi |
+| Таблица обработчиков | 4618 Б (14%) | 452 Б (22%) | Те же сценарии — Wokwi |
 
-Пешеходные журналы содержат ожидаемые `PED_QUEUED` и продление красного. Их запускатель завершился `timeout 42` уже после выдачи лога, поэтому этот прогон не выдан за успешно завершённый автоматический сценарий.
+При проверке пешеходного запроса в Serial появились ожидаемые `PED_QUEUED` и продление красного. Автоматический сценарий завершился по тайм-ауту уже после вывода результата, поэтому в отчёте этот прогон отмечен как наблюдение, а не как полностью завершённый тест.
 
 ## Как проверить
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\scripts\build.ps1 -Lab lab02 -Sketch switch_fsm
-.\scripts\build.ps1 -Lab lab02 -Sketch table_fsm
-.\scripts\test.ps1 -Lab lab02
+arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab02/switch_fsm lab02/src/switch_fsm
+arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab02/table_fsm lab02/src/table_fsm
 ```
 
-Откройте `circuits/switch-case` или `circuits/table-driven` в VS Code, выберите находящийся там `wokwi.toml` и выполните **Wokwi: Start Simulator**. Для быстрого открытия подготовлены `open-switch-wokwi.cmd` и `open-table-wokwi.cmd`.
+Откройте `circuits/switch-case` или `circuits/table-driven` в VS Code, выберите находящийся там `wokwi.toml` и выполните **Wokwi: Start Simulator**.

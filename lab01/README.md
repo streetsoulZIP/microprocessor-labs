@@ -1,6 +1,6 @@
 # Лабораторная работа №1 — порты микроконтроллера и биты
 
-[Отчёт PDF](report.pdf) · [Редактируемый отчёт DOCX](report.docx) · [Видеодемонстрация](demo.mp4) · [Исходный код](src/ports/ports.ino) · [Схема Wokwi](diagram.json)
+[Отчёт PDF](report.pdf) · [Видеодемонстрация](demo.mp4) · [Исходный код](src/ports/ports.ino) · [Схема Wokwi](diagram.json) · [Ответы на вопросы](questions.md)
 
 ## Что требовалось
 
@@ -22,9 +22,7 @@
 ## Как проверить
 
 ```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\scripts\build.ps1 -Lab lab01 -Sketch ports
-.\scripts\test.ps1 -Lab lab01
+arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab01/ports lab01/src/ports
 ```
 
 Для визуальной проверки откройте этот каталог в VS Code, выберите `wokwi.toml` в **Wokwi: Select Config File** и запустите **Wokwi: Start Simulator**. В схеме доступны три кнопки и три светодиода.

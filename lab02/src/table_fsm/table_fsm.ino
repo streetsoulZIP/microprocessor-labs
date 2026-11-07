@@ -9,7 +9,14 @@ const byte NIGHT = 4;
 const unsigned long DEBOUNCE = 50;
 
 enum State { GREEN_STATE, YELLOW_STATE, RED_STATE, STATE_COUNT };
-enum Event { TIMER_EVENT, PED_EVENT, EVENT_COUNT };
+enum Event {
+  TIMER_EVENT,
+  PED_EVENT,
+  EMERGENCY_ON_EVENT,
+  EMERGENCY_OFF_EVENT,
+  NIGHT_TOGGLE_EVENT,
+  EVENT_COUNT
+};
 
 State state = GREEN_STATE;
 State savedState = GREEN_STATE;
@@ -124,11 +131,15 @@ void onYellowTimer() {
 
 void onRedTimer() { enterNormal(GREEN_STATE, "TIMER"); }
 
+void enterEmergency();
+void leaveEmergency();
+void toggleNight();
+
 typedef void (*Handler)();
 Handler table[STATE_COUNT][EVENT_COUNT] = {
-  {onGreenTimer, onPed},
-  {onYellowTimer, onPed},
-  {onRedTimer, onPed},
+  {onGreenTimer, onPed, enterEmergency, leaveEmergency, toggleNight},
+  {onYellowTimer, onPed, enterEmergency, leaveEmergency, toggleNight},
+  {onRedTimer, onPed, enterEmergency, leaveEmergency, toggleNight},
 };
 
 void enterEmergency() {
@@ -186,9 +197,14 @@ void setup() {
 void loop() {
   if (Serial.available() && Serial.read() == 'F') fastMode();
 
+  if (state >= STATE_COUNT) {
+    enterEmergency();
+    return;
+  }
+
   bool emergencyNow = digitalRead(EMERGENCY) == LOW;
-  if (emergencyNow && !emergencyMode) enterEmergency();
-  if (!emergencyNow && emergencyMode) leaveEmergency();
+  if (emergencyNow && !emergencyMode) table[state][EMERGENCY_ON_EVENT]();
+  if (!emergencyNow && emergencyMode) table[state][EMERGENCY_OFF_EVENT]();
 
   if (ped.fell()) {
     if (emergencyMode) {
@@ -197,7 +213,7 @@ void loop() {
       table[state][PED_EVENT]();
     }
   }
-  if (night.fell()) toggleNight();
+  if (night.fell()) table[state][NIGHT_TOGGLE_EVENT]();
 
   if (emergencyMode || nightMode) {
     static unsigned long blink = 0;
