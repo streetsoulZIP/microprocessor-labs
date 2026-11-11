@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 20, "left": 0, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad", "top": 0, "left": 300, "attrs": {} }
+  ],
+  "connections": [
+    [ "keypad:R1", "uno:4", "green", [] ],
+    [ "keypad:R2", "uno:5", "green", [] ],
+    [ "keypad:R3", "uno:6", "green", [] ],
+    [ "keypad:R4", "uno:7", "green", [] ],
+    [ "keypad:C1", "uno:8", "blue", [] ],
+    [ "keypad:C2", "uno:9", "blue", [] ],
+    [ "keypad:C3", "uno:10", "blue", [] ],
+    [ "keypad:C4", "uno:11", "blue", [] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" }
+}

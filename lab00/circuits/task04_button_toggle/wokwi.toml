@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "../../../build/lab00/task04_button_toggle/task04_button_toggle.ino.hex"
+elf = "../../../build/lab00/task04_button_toggle/task04_button_toggle.ino.elf"

@@ -21,6 +21,8 @@ labs/*/results/*.log
 !assignments/*.pdf
 !labs/lab01/reports/lab01-report.pdf
 !labs/lab02/reports/lab02-report.pdf
+!lab00/report.pdf
+!lab03/report.pdf
 
 # Local verification renders and raw tool output are not publication material
 artifacts/report-renders/
@@ -37,8 +39,22 @@ artifacts/build-logs/*.log
 /lab01/test.yaml
 /lab01/tests/
 /lab01/report.docx
+/lab00/tests/
+/lab00/report.docx
 /lab02/circuits/**/*.test.yaml
 /lab02/circuits/**/test.yaml
 /lab02/tests/
 /lab02/*.cmd
 /lab02/report.docx
+/lab03/report.docx
+
+# Local course infrastructure and AI working material; keep the public repo concise
+/AGENTS.md
+/CODEX_SETUP_TASK.md
+/README_RU.md
+/artifacts/
+/assignments/
+/docs/
+/labs/
+/microprocessor-labs.code-workspace
+/reports/

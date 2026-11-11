@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = "../../../build/lab00/task08_button_traffic/task08_button_traffic.ino.hex"
+elf = "../../../build/lab00/task08_button_traffic/task08_button_traffic.ino.elf"

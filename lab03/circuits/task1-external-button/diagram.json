@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10, "left": 0, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "button", "top": 25, "left": 270, "attrs": { "label": "INT0 / mode", "bounce": "1", "key": "B" } },
+    { "type": "wokwi-led", "id": "led", "top": 125, "left": 280, "attrs": { "color": "red", "label": "Blink" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 190, "left": 285, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "button:1.l", "uno:2", "green", [] ],
+    [ "button:2.l", "uno:GND.1", "black", [] ],
+    [ "uno:13", "led:A", "red", [] ],
+    [ "led:C", "r1:1", "green", [] ],
+    [ "r1:2", "uno:GND.2", "black", [] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" }
+}

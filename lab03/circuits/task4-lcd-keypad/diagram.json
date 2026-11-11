@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 80, "left": 0, "attrs": {} },
+    { "type": "wokwi-membrane-keypad", "id": "keypad", "top": 30, "left": 350, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -130, "left": 30, "attrs": { "pins": "i2c", "i2cAddress": "0x27" } },
+    { "type": "chip-diode", "id": "d1", "top": 250, "left": 300, "attrs": {} },
+    { "type": "chip-diode", "id": "d2", "top": 275, "left": 300, "attrs": {} },
+    { "type": "chip-diode", "id": "d3", "top": 300, "left": 300, "attrs": {} },
+    { "type": "chip-diode", "id": "d4", "top": 325, "left": 300, "attrs": {} }
+  ],
+  "connections": [
+    [ "keypad:R1", "uno:4", "green", [] ],
+    [ "keypad:R2", "uno:5", "green", [] ],
+    [ "keypad:R3", "uno:6", "green", [] ],
+    [ "keypad:R4", "uno:7", "green", [] ],
+    [ "keypad:C1", "uno:8", "blue", [] ],
+    [ "keypad:C2", "uno:9", "blue", [] ],
+    [ "keypad:C3", "uno:10", "blue", [] ],
+    [ "keypad:C4", "uno:11", "blue", [] ],
+    [ "uno:2", "d1:CATHODE", "orange", [] ],
+    [ "uno:2", "d2:CATHODE", "orange", [] ],
+    [ "uno:2", "d3:CATHODE", "orange", [] ],
+    [ "uno:2", "d4:CATHODE", "orange", [] ],
+    [ "d1:ANODE", "keypad:C1", "orange", [] ],
+    [ "d2:ANODE", "keypad:C2", "orange", [] ],
+    [ "d3:ANODE", "keypad:C3", "orange", [] ],
+    [ "d4:ANODE", "keypad:C4", "orange", [] ],
+    [ "lcd:GND", "uno:GND.1", "black", [] ],
+    [ "lcd:VCC", "uno:5V", "red", [] ],
+    [ "lcd:SDA", "uno:A4", "green", [] ],
+    [ "lcd:SCL", "uno:A5", "green", [] ]
+  ],
+  "dependencies": {
+    "chip-diode": "github:drf5n/Wokwi-Chip-Diode@1.0.0"
+  },
+  "serialMonitor": { "display": "always", "newline": "lf" }
+}
