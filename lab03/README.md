@@ -42,9 +42,9 @@ arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab03/task3_keypad
 arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab03/task4_lcd_keypad lab03/src/task4_lcd_keypad
 ```
 
-### Запуск Wokwi двойным щелчком
+### Запуск Wokwi
 
-Запустите [`open-wokwi.cmd`](open-wokwi.cmd). Откроется отдельное окно VS Code с исходным кодом задания 4 и его готовой схемой Wokwi. В редакторе схемы нажмите зелёную кнопку запуска — нужные `diagram.json`, `wokwi.toml`, HEX и ELF уже связаны между собой.
+Откройте нужную папку из `lab03/circuits` в VS Code и выполните команду **Wokwi: Start Simulator**. Файлы `diagram.json`, `wokwi.toml`, HEX и ELF уже связаны между собой.
 
 Если расширение сообщает `Your Wokwi license has expired`, сначала нажмите **Request a New License** и завершите активацию. Токен Wokwi CLI не заменяет лицензию расширения VS Code.
 

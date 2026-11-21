@@ -45,7 +45,7 @@ arduino-cli compile --fqbn arduino:avr:uno --output-dir build/lab00/task06_brigh
 
 ## Визуальная демонстрация
 
-Файл `open-wokwi.cmd` собирает задание 6, открывает его схему в VS Code и вызывает команду запуска Wokwi. На демонстрации:
+Для демонстрации откройте папку `lab00/circuits/task06_brightness_lock` в VS Code и выполните команду **Wokwi: Start Simulator**. На демонстрации:
 
 1. поверните потенциометр и покажите изменение яркости;
 2. удерживайте синюю кнопку `LOCK`;

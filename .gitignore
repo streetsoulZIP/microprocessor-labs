@@ -36,6 +36,7 @@ artifacts/build-logs/*.log
 
 # Local build/test infrastructure is useful on this PC, but not needed for submission
 /scripts/
+/lab*/**/*.cmd
 /lab01/*.test.yaml
 /lab01/test.yaml
 /lab01/tests/
