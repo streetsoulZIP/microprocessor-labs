@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 70, "left": -270, "attrs": {} },
+    { "type": "board-ili9341-cap-touch", "id": "tft", "top": -65, "left": 110, "attrs": {} },
+    { "type": "wokwi-text", "id": "title", "top": -115, "left": -250, "attrs": { "text": "TFT: SPI display + I2C touch" } }
+  ],
+  "connections": [
+    [ "tft:VCC", "uno:5V", "red", [ "h-35", "v315", "h-220" ] ],
+    [ "tft:GND", "uno:GND.2", "black", [ "h-20", "v335", "h-230" ] ],
+    [ "tft:CS", "uno:10", "orange", [ "h-55", "v230", "h-160" ] ],
+    [ "tft:D/C", "uno:9", "blue", [ "h-70", "v215", "h-145" ] ],
+    [ "tft:MOSI", "uno:11", "green", [ "h-85", "v195", "h-125" ] ],
+    [ "tft:SCK", "uno:13", "yellow", [ "h-100", "v175", "h-105" ] ],
+    [ "tft:MISO", "uno:12", "gray", [ "h-115", "v155", "h-85" ] ],
+    [ "tft:SDA", "uno:A4", "#2196f3", [ "h-35", "v390", "h-290" ] ],
+    [ "tft:SCL", "uno:A5", "#fbc02d", [ "h-20", "v410", "h-305" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 90, "left": -300, "attrs": {} },
+    { "type": "wokwi-7segment", "id": "display", "top": 5, "left": 275, "attrs": { "digits": "4", "common": "cathode", "color": "red" } },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": 245, "left": 335, "attrs": { "value": "512" } },
+    { "type": "wokwi-text", "id": "label1", "top": -45, "left": 260, "attrs": { "text": "A0 voltage, 1 kHz Timer1 scan" } },
+    { "type": "wokwi-text", "id": "label2", "top": 190, "left": 250, "attrs": { "text": "Physical board: 8x220R + 4 digit transistors" } }
+  ],
+  "connections": [
+    [ "uno:12", "display:A", "red", [ "v-75", "h420" ] ],
+    [ "uno:10", "display:B", "orange", [ "v-55", "h400" ] ],
+    [ "uno:6", "display:C", "yellow", [ "v-35", "h380" ] ],
+    [ "uno:8", "display:D", "green", [ "v-15", "h360" ] ],
+    [ "uno:9", "display:E", "blue", [ "v5", "h340" ] ],
+    [ "uno:11", "display:F", "purple", [ "v25", "h320" ] ],
+    [ "uno:5", "display:G", "white", [ "v45", "h300" ] ],
+    [ "uno:7", "display:DP", "gray", [ "v65", "h280" ] ],
+    [ "uno:13", "display:DIG1", "cyan", [ "v85", "h260" ] ],
+    [ "uno:3", "display:DIG2", "cyan", [ "v105", "h240" ] ],
+    [ "uno:2", "display:DIG3", "cyan", [ "v125", "h220" ] ],
+    [ "uno:4", "display:DIG4", "cyan", [ "v145", "h200" ] ],
+    [ "pot:SIG", "uno:A0", "#4caf50", [ "h-50", "v95", "h-315" ] ],
+    [ "pot:VCC", "uno:5V", "red", [ "h-25", "v75", "h-340" ] ],
+    [ "pot:GND", "uno:GND.2", "black", [ "h-10", "v55", "h-355" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

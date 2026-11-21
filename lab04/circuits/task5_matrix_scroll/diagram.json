@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 75, "left": -315, "attrs": {} },
+    { "type": "wokwi-max7219-matrix", "id": "matrix", "top": 25, "left": 105, "attrs": { "chain": "4", "color": "#36d8ff", "layout": "fc16" } },
+    { "type": "wokwi-text", "id": "title", "top": -35, "left": -290, "attrs": { "text": "4x MAX7219: 32x8 scrolling buffer" } }
+  ],
+  "connections": [
+    [ "matrix:V+", "uno:5V", "red", [ "h-55", "v280", "h-250" ] ],
+    [ "matrix:GND", "uno:GND.2", "black", [ "h-40", "v300", "h-265" ] ],
+    [ "matrix:DIN", "uno:11", "green", [ "h-75", "v125", "h-205" ] ],
+    [ "matrix:CLK", "uno:13", "yellow", [ "h-60", "v105", "h-220" ] ],
+    [ "matrix:CS", "uno:10", "blue", [ "h-45", "v145", "h-235" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

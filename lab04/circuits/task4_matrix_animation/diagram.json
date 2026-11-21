@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 60, "left": -250, "attrs": {} },
+    { "type": "wokwi-max7219-matrix", "id": "matrix", "top": 45, "left": 170, "attrs": { "chain": "1", "color": "#ff3030", "layout": "parola" } },
+    { "type": "wokwi-text", "id": "title", "top": -20, "left": -225, "attrs": { "text": "MAX7219: static pattern and animation" } }
+  ],
+  "connections": [
+    [ "matrix:V+", "uno:5V", "red", [ "h-80", "v245", "h-205" ] ],
+    [ "matrix:GND", "uno:GND.2", "black", [ "h-65", "v265", "h-220" ] ],
+    [ "matrix:DIN", "uno:11", "green", [ "h-100", "v95", "h-165" ] ],
+    [ "matrix:CLK", "uno:13", "yellow", [ "h-85", "v75", "h-180" ] ],
+    [ "matrix:CS", "uno:10", "blue", [ "h-70", "v115", "h-195" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

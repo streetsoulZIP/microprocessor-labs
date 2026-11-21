@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "author": "Богдан Яковенко",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 95, "left": -245, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -55, "left": 115, "attrs": { "pins": "i2c", "i2cAddress": "0x27", "background": "blue", "color": "white" } },
+    { "type": "wokwi-potentiometer", "id": "pot", "top": 205, "left": 205, "attrs": { "value": "512" } },
+    { "type": "wokwi-text", "id": "title", "top": -105, "left": -220, "attrs": { "text": "LCD 16x2: I2C status and A0 voltage" } }
+  ],
+  "connections": [
+    [ "lcd:VCC", "uno:5V", "red", [ "h-55", "v270", "h-210" ] ],
+    [ "lcd:GND", "uno:GND.2", "black", [ "h-40", "v290", "h-225" ] ],
+    [ "lcd:SDA", "uno:A4", "blue", [ "h-70", "v235", "h-195" ] ],
+    [ "lcd:SCL", "uno:A5", "yellow", [ "h-85", "v215", "h-180" ] ],
+    [ "pot:SIG", "uno:A0", "green", [ "h-45", "v85", "h-230" ] ],
+    [ "pot:VCC", "uno:5V", "red", [ "h-30", "v65", "h-245" ] ],
+    [ "pot:GND", "uno:GND.2", "black", [ "h-15", "v45", "h-260" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}

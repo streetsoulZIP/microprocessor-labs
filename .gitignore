@@ -23,6 +23,7 @@ labs/*/results/*.log
 !labs/lab02/reports/lab02-report.pdf
 !lab00/report.pdf
 !lab03/report.pdf
+!lab04/report.pdf
 
 # Local verification renders and raw tool output are not publication material
 artifacts/report-renders/
@@ -47,6 +48,9 @@ artifacts/build-logs/*.log
 /lab02/*.cmd
 /lab02/report.docx
 /lab03/report.docx
+/lab04/tests/
+/lab04/report.docx
+/lab04/*.mp4
 
 # Local course infrastructure and AI working material; keep the public repo concise
 /AGENTS.md
